@@ -1,0 +1,14 @@
+{
+  "name": "vastukport",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "sass": "node-sass assets/scss/main.scss assets/css/main.css -w"
+  },
+  "author": "Vastuk",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}

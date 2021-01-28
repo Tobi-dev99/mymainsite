@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+:root {
+  --bg-color: #092241;
+  --color-white: #fff; }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+*:after,
+*:before {
+  box-sizing: border-box; }
+
+body {
+  position: relative; }
+
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #092241;
+  background-attachment: fixed; }
+
+img {
+  width: 103%;
+  height: auto;
+  background-size: cover; }
+
+.mountain {
+  width: 120%;
+  height: auto;
+  background-size: cover; }
+
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 62.5%;
+  line-height: 1.5; }
+
+.heading-main {
+  color: var(--color-white);
+  font-size: 15rem;
+  line-height: 1; }
+
+.sub-heading {
+  font-size: 3rem;
+  color: var(--color-white);
+  letter-spacing: 3px;
+  margin-bottom: 2rem; }
+
+.btn {
+  font-size: 3rem;
+  text-decoration: none;
+  padding: 1.5rem 2rem;
+  border-radius: 50px; }
+  .btn:link, .btn:visited {
+    color: var(--color-white);
+    border: 1px solid var(--color-white); }
+
+.main-page {
+  position: absolute;
+  z-index: 500;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  padding-left: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 3rem;
+  z-index: 500; }
+  .navbar__items {
+    display: flex;
+    list-style: none;
+    font-size: 2rem; }
+  .navbar__link {
+    text-decoration: none; }
+    .navbar__link:link, .navbar__link:visited {
+      color: var(--color-white); }
+  .navbar__item:not(:last-child) {
+    margin-right: 5rem; }
+  .navbar__logo {
+    padding: 0.8rem; }
+
+.heading-box {
+  display: flex;
+  flex-direction: column; }
+  .heading-box a {
+    align-self: start; }
+
+.scroll-down {
+  margin-bottom: 3rem;
+  align-self: center; }
+  .scroll-down__icon {
+    width: 1.5rem;
+    height: 3rem;
+    border-radius: 10px;
+    border: 2px solid var(--color-white);
+    position: relative; }
+    .scroll-down__icon--button {
+      width: .2rem;
+      height: .5rem;
+      border-radius: 50%;
+      background-color: var(--color-white);
+      position: absolute;
+      top: .5rem;
+      left: 50%;
+      transform: translateX(-50%); }
