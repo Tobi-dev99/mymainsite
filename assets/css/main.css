@@ -33,7 +33,7 @@ img {
   background-size: cover; }
 
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 62.5%;
   line-height: 1.5; }
 
@@ -41,21 +41,109 @@ html {
   color: var(--color-white);
   font-size: 15rem;
   line-height: 1; }
+  .heading-main--anim {
+    position: relative;
+    align-self: start; }
+    .heading-main--anim--box {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      background-color: #fff; }
 
 .sub-heading {
   font-size: 3rem;
   color: var(--color-white);
   letter-spacing: 3px;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  font-weight: 100; }
 
-.btn {
+.btn:link, .btn:visited {
+  color: var(--color-white);
   font-size: 3rem;
   text-decoration: none;
-  padding: 1.5rem 2rem;
-  border-radius: 50px; }
-  .btn:link, .btn:visited {
-    color: var(--color-white);
-    border: 1px solid var(--color-white); }
+  padding: 0.7em calc(0.7em * 1.2);
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  letter-spacing: 0.07rem;
+  border: 3px solid transparent; }
+
+.btn .text {
+  transform: translate3d(0, 0.7em, 0);
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1) 0.4s; }
+
+.btn::after {
+  position: absolute;
+  content: "";
+  bottom: -3px;
+  left: calc(0.7em * 1.2);
+  right: calc(0.7em * 1.2);
+  height: 3px;
+  background: #f26522;
+  transition: transform 0.8s cubic-bezier(1, 0, 0.37, 1) 0.2s, right 0.2s cubic-bezier(0.04, 0.48, 0, 1) 0.6s, left 0.4s cubic-bezier(0.04, 0.48, 0, 1) 0.6s;
+  transform-origin: left; }
+
+.btn .line {
+  position: absolute;
+  background: #f26522; }
+  .btn .line.-right, .btn .line.-left {
+    width: 3px;
+    bottom: 3px;
+    top: 3px;
+    transform: scale3d(1, 0, 1); }
+  .btn .line.-top, .btn .line.-bottom {
+    height: 3px;
+    left: 3px;
+    right: 3px;
+    transform: scale3d(0, 1, 1); }
+  .btn .line.-right {
+    right: -3px;
+    transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.23s;
+    transform-origin: top; }
+  .btn .line.-top {
+    top: -3px;
+    transition: transform 0.08s linear 0.43s;
+    transform-origin: left; }
+  .btn .line.-left {
+    left: -3px;
+    transition: transform 0.08s linear 0.51s;
+    transform-origin: bottom; }
+  .btn .line.-bottom {
+    bottom: -3px;
+    transition: transform 0.3s cubic-bezier(1, 0, 0.65, 1.01);
+    transform-origin: right; }
+
+.btn:hover .text, .btn:active .text {
+  transform: translate3d(0, 0, 0); }
+
+.btn:hover::after, .btn:active::after {
+  transform: scale3d(0, 1, 1);
+  right: -3px;
+  left: -3px;
+  transform-origin: right;
+  transition: transform 0.2s cubic-bezier(1, 0, 0.65, 1.01) 0.17s, right 0.2s cubic-bezier(1, 0, 0.65, 1.01), left 0s 0.3s; }
+
+.btn:hover .line, .btn:active .line {
+  transform: scale3d(1, 1, 1); }
+  .btn:hover .line.-right, .btn:active .line.-right {
+    transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.2s;
+    transform-origin: bottom; }
+  .btn:hover .line.-top, .btn:active .line.-top {
+    transition: transform 0.08s linear 0.4s;
+    transform-origin: right; }
+  .btn:hover .line.-left, .btn:active .line.-left {
+    transition: transform 0.08s linear 0.48s;
+    transform-origin: top; }
+  .btn:hover .line.-bottom, .btn:active .line.-bottom {
+    transition: transform 0.5s cubic-bezier(0, 0.53, 0.29, 1) 0.56s;
+    transform-origin: left; }
+
+.hide-text {
+  display: none; }
 
 .main-page {
   position: absolute;
@@ -67,14 +155,23 @@ html {
   padding-left: 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; }
+  justify-content: space-between;
+  overflow: hidden; }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-right: 3rem;
-  z-index: 500; }
+  z-index: 500;
+  transition: all .5s; }
+  .navbar--scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 9rem;
+    background-color: #000; }
   .navbar__items {
     display: flex;
     list-style: none;
@@ -112,3 +209,7 @@ html {
       top: .5rem;
       left: 50%;
       transform: translateX(-50%); }
+
+.about {
+  height: 100vh;
+  width: 100%; }
