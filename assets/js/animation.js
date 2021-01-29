@@ -37,7 +37,7 @@ ScrollTrigger.create({
   trigger: ".scroll-down",
   start: "top 100px",
   end: 1000,
-  markers: true,
+  markers: false,
   toggleClass: { className: "navbar--scrolled", targets: ".navbar" },
 });
 
