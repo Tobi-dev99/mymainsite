@@ -1,6 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap");
 :root {
   --bg-color: #092241;
+  --card-color: #092241;
   --color-white: #fff; }
 
 * {
@@ -33,14 +34,15 @@ img {
   background-size: cover; }
 
 html {
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 62.5%;
   line-height: 1.5; }
 
 .heading-main {
   color: var(--color-white);
   font-size: 15rem;
-  line-height: 1; }
+  line-height: 1;
+  letter-spacing: 5px; }
   .heading-main--anim {
     position: relative;
     align-self: start; }
@@ -56,7 +58,7 @@ html {
 .sub-heading {
   font-size: 3rem;
   color: var(--color-white);
-  letter-spacing: 3px;
+  letter-spacing: 5px;
   margin-bottom: 2rem;
   font-weight: 100; }
 
@@ -64,15 +66,15 @@ html {
   color: var(--color-white);
   font-size: 3rem;
   text-decoration: none;
-  padding: 0.7em calc(0.7em * 1.2);
+  padding: 0.5em calc(0.5em * 1.2);
   display: inline-block;
   position: relative;
   cursor: pointer;
-  letter-spacing: 0.07rem;
+  letter-spacing: 0.07em;
   border: 3px solid transparent; }
 
 .btn .text {
-  transform: translate3d(0, 0.7em, 0);
+  transform: translate3d(0, 0.5em, 0);
   display: block;
   transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1) 0.4s; }
 
@@ -80,8 +82,8 @@ html {
   position: absolute;
   content: "";
   bottom: -3px;
-  left: calc(0.7em * 1.2);
-  right: calc(0.7em * 1.2);
+  left: calc(0.5em * 1.2);
+  right: calc(0.5em * 1.2);
   height: 3px;
   background: #f26522;
   transition: transform 0.8s cubic-bezier(1, 0, 0.37, 1) 0.2s, right 0.2s cubic-bezier(0.04, 0.48, 0, 1) 0.6s, left 0.4s cubic-bezier(0.04, 0.48, 0, 1) 0.6s;
@@ -92,13 +94,13 @@ html {
   background: #f26522; }
   .btn .line.-right, .btn .line.-left {
     width: 3px;
-    bottom: 3px;
-    top: 3px;
+    bottom: -3px;
+    top: -3px;
     transform: scale3d(1, 0, 1); }
   .btn .line.-top, .btn .line.-bottom {
     height: 3px;
-    left: 3px;
-    right: 3px;
+    left: -3px;
+    right: -3px;
     transform: scale3d(0, 1, 1); }
   .btn .line.-right {
     right: -3px;
@@ -145,6 +147,20 @@ html {
 .hide-text {
   display: none; }
 
+.heading__about {
+  font-size: 8rem;
+  margin-bottom: 5rem;
+  color: #f26522;
+  font-weight: 300;
+  position: relative; }
+
+.under {
+  width: 25rem;
+  height: 3px;
+  bottom: 0;
+  margin: -4.4rem auto 0;
+  background: #f26522; }
+
 .main-page {
   position: absolute;
   z-index: 500;
@@ -164,14 +180,21 @@ html {
   align-items: center;
   padding-right: 3rem;
   z-index: 500;
-  transition: all .5s; }
+  transition: all .5s;
+  position: relative; }
+  .navbar .line {
+    height: .2rem;
+    position: absolute;
+    bottom: 3.5rem;
+    margin: 1rem 0 0 0;
+    background: #f26522; }
   .navbar--scrolled {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 9rem;
-    background-color: #000; }
+    background-color: rgba(0, 0, 0, 0.7); }
   .navbar__items {
     display: flex;
     list-style: none;
@@ -179,9 +202,17 @@ html {
   .navbar__link {
     text-decoration: none; }
     .navbar__link:link, .navbar__link:visited {
-      color: var(--color-white); }
+      color: currentColor;
+      opacity: inherit; }
   .navbar__item:not(:last-child) {
-    margin-right: 5rem; }
+    margin-right: 5rem;
+    color: var(--color-white);
+    opacity: .5; }
+  .navbar__item:hover {
+    color: var(--color-white);
+    opacity: 1; }
+  .navbar__item--active {
+    opacity: 1 !important; }
   .navbar__logo {
     padding: 0.8rem; }
 
@@ -195,21 +226,93 @@ html {
   margin-bottom: 3rem;
   align-self: center; }
   .scroll-down__icon {
-    width: 1.5rem;
-    height: 3rem;
+    width: 3rem;
+    height: 4rem;
     border-radius: 10px;
     border: 2px solid var(--color-white);
-    position: relative; }
+    position: relative;
+    background-color: var(--color-white); }
     .scroll-down__icon--button {
       width: .2rem;
-      height: .5rem;
+      height: 1rem;
       border-radius: 50%;
-      background-color: var(--color-white);
+      background-color: #000;
       position: absolute;
       top: .5rem;
       left: 50%;
       transform: translateX(-50%); }
 
 .about {
-  height: 100vh;
-  width: 100%; }
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 10rem;
+  border-top: 2px solid #f26522; }
+  .about .header-about {
+    text-align: center;
+    width: 100%;
+    overflow: hidden; }
+
+.info-box {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .info-box__text {
+    max-width: 50rem;
+    padding: 7rem 4rem;
+    font-size: 2rem;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+    height: 100%;
+    margin: 5rem;
+    letter-spacing: 3px;
+    color: var(--bg-color);
+    background-color: beige;
+    line-height: 2;
+    border-radius: 5px;
+    position: relative; }
+    .info-box__text::before {
+      content: "Who am I?";
+      position: absolute;
+      top: -2rem;
+      left: -1rem;
+      background-color: #f26522;
+      color: var(--color-white);
+      padding: 1rem .5rem;
+      padding-right: 3rem;
+      border: 3px solid var(--bg-color);
+      border-radius: 1rem 0 0 0;
+      clip-path: polygon(0% 0%, 100% 0%, 80% 50%, 100% 100%, 0% 100%);
+      letter-spacing: 3px; }
+  .info-box__animate {
+    margin-top: 5rem;
+    width: 100%;
+    padding: 0 20rem; }
+    .info-box__animate svg path {
+      fill: #f26522; }
+
+.feature {
+  display: flex;
+  justify-content: space-between; }
+  .feature__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25rem;
+    height: 30rem;
+    border-radius: 5px;
+    padding: 1rem 3rem;
+    background-color: var(--card-color);
+    box-shadow: 0rem 2rem 3rem 0rem rgba(0, 0, 0, 0.1); }
+  .feature__icon svg {
+    width: 8rem;
+    height: 8rem;
+    fill: #f26522; }
+  .feature__title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #f26522; }
+  .feature__text {
+    font-size: 2rem;
+    color: #fff; }

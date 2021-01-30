@@ -1,6 +1,10 @@
 const mainPageEl = document.querySelector(".main-page");
 const navbarItem = document.querySelectorAll(".navbar__item");
 const subHeading = document.querySelector(".sub-heading");
+const scrollBarIcon = document.querySelector('.scroll-down');
+
+//featureCard
+const featureCard = $('.feature__card');
 
 //Activating  ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -31,12 +35,52 @@ gsap.from(".mountain", {
   ease: "back",
 });
 
+////////////////////////////////////////////////////////////////////
+///ABOUT SECTION
+
+gsap.from('.heading__about', {
+  scrollTrigger: {
+    trigger: '.heading__about',
+    markers: false,
+    toggleActions: "restart reverse restart pause",
+  },
+  xPercent: 50,
+  opacity: 0,
+  duration: 1,
+  ease: 'ease'
+});
+
+gsap.from(".info-box__text", {
+  scrollTrigger: {
+    trigger: ".info-box",
+    markers: false,
+    toggleActions: "restart reverse restart pause",
+  },
+  yPercent: 50,
+  opacity: 0,
+  duration: 1,
+  ease: "ease",
+});
+
+gsap.from(".feature__card", {
+  scrollTrigger: {
+    trigger: ".info-box__animate",
+    markers: false,
+    toggleActions: "restart reverse restart pause",
+  },
+  yPercent: 50,
+  opacity: 0,
+  stagger: 0.1,
+  // duration: .5,
+  // ease: "ease",
+});
+
 //Navbar fixed
 
 ScrollTrigger.create({
   trigger: ".scroll-down",
   start: "top 100px",
-  end: 1000,
+  end: 9999,
   markers: false,
   toggleClass: { className: "navbar--scrolled", targets: ".navbar" },
 });
@@ -49,7 +93,6 @@ ScrollTrigger.create({
 const subHeadingText = document.querySelector(".hide-text");
 
 const sHeadingChar = subHeadingText.textContent.split("");
-console.log(sHeadingChar);
 
 sHeadingChar.forEach((el) => {
   const spanEl = document.createElement("span");
@@ -90,3 +133,38 @@ headingTl
     ease: 'back',
     duration: 1
   })
+
+  //scrollbar-icon
+
+  gsap.to(scrollBarIcon, {yPercent: -100, ease: 'back', yoyo: true, repeat: -1 })
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  //Feature Card move
+
+
+
+  featureCard.on('mouseenter', function (e) {
+    let thisPage = $(this).attr('id');
+    console.log(thisPage);
+
+     gsap.to($('#'+thisPage), {
+       yPercent: -20,
+       scale: 1.1,
+       ease: "ease",
+       duration: 0.4,
+     });
+  })
+
+   featureCard.on("mouseleave", function (e) {
+     let thisPage = $(this).attr("id");
+
+     gsap.to($("#" + thisPage), {
+       yPercent: 0,
+       scale: 1,
+       ease: "ease",
+       duration: 0.4,
+     });
+   });
+
+

@@ -1,5 +1,6 @@
 :root{
     --bg-color: #092241;
+    --card-color: #092241;
 
 
     //font
@@ -7,6 +8,8 @@
 }
 
 $thick : 3px;
-$pad : .7em;
+$pad : .5em;
 $extra : calc(#{$pad} * 1.2);
 $color : #f26522;
+$color-black: #000;
+$color-blue-light: #0e396e

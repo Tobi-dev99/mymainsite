@@ -20,6 +20,15 @@
   padding-right: 3rem;
   z-index: 500;
   transition: all .5s;
+  position: relative;
+
+  .line{
+    height: .2rem;
+    position: absolute;
+    bottom: 3.5rem;
+    margin: 1rem 0 0 0;
+    background: $color;
+  }
 
   &--scrolled{
     position: fixed;
@@ -27,8 +36,9 @@
     left: 0;
     width: 100%;
     height: 9rem;
-    background-color: #000;
+    background-color: rgba($color-black,.7);
   }
+
 
   &__items {
     display: flex;
@@ -40,14 +50,26 @@
     text-decoration: none;
     &:link,
     &:visited {
-      color: var(--color-white);
+      color: currentColor;
+      opacity: inherit;
     }
   }
 
   &__item{
       &:not(:last-child) {
       margin-right: 5rem;
+      color: var(--color-white);
+      opacity: .5;
     }
+
+    &:hover{
+      color: var(--color-white);
+      opacity: 1;
+    }
+
+    &--active{
+        opacity: 1 !important;
+      }
   }
 
   &__logo {
@@ -69,17 +91,18 @@
     align-self: center;
 
     &__icon{
-        width: 1.5rem;
-        height: 3rem;
+        width: 3rem;
+        height: 4rem;
         border-radius: 10px;
         border: 2px solid var(--color-white);
         position: relative;
+        background-color: var(--color-white);
 
         &--button{
             width: .2rem;
-            height: .5rem;
+            height: 1rem;
             border-radius: 50%;
-            background-color: var(--color-white);
+            background-color: $color-black;
             position: absolute;
             top: .5rem;
             left: 50%;
@@ -89,6 +112,70 @@
 }
 
 .about{
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
+  padding-top: 10rem;
+  // background: linear-gradient(to bottom,var(--bg-color), $color-blue-light, var(--bg-color) );
+  // background-color: rgba(255, 255, 255, 0.678);
+  border-top: 2px solid $color;
+  .header-about{
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+.info-box{
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__text{
+    max-width: 50rem;
+    padding: 7rem 4rem;
+    font-size: 2rem;
+    box-shadow: 0 1rem 1rem rgba($color-black,.1);
+    height: 100%;
+    margin: 5rem;
+    letter-spacing: 3px;
+    color: var(--bg-color);
+    background-color: beige;
+    line-height: 2;
+    // transform: skewY(-8deg);
+    border-radius: 5px;
+    position: relative;
+
+    &::before{
+      content: "Who am I?";
+      position: absolute;
+      top: -2rem;
+      left: -1rem;
+      background-color: $color;
+      color: var(--color-white);
+      padding: 1rem .5rem;
+      padding-right: 3rem;
+      border: 3px solid var(--bg-color);
+      border-radius: 1rem 0 0 0;
+      clip-path: polygon(0% 0%, 100% 0%, 80% 50%, 100% 100%, 0% 100%);
+      letter-spacing: 3px;
+    }
+  }
+
+  &__animate{
+    // box-shadow: 0 1rem 2rem 3rem rgba($color-black,.1);
+    margin-top: 5rem;
+    width: 100%;
+    padding: 0 20rem;
+
+    svg{
+      
+      path{
+      fill: $color;
+      
+    }
+  }
+  }
+
 }

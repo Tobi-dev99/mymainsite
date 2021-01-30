@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap");
 
 html {
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 62.5%;
   line-height: 1.5;
 }
@@ -11,6 +11,7 @@ html {
   font-size: 15rem;
   line-height: 1;
   // font-weight: 100;
+  letter-spacing: 5px;
 
   &--anim {
     position: relative;
@@ -30,7 +31,7 @@ html {
 .sub-heading {
   font-size: 3rem;
   color: var(--color-white);
-  letter-spacing: 3px;
+  letter-spacing: 5px;
   margin-bottom: 2rem;
   font-weight: 100;
 }
@@ -45,7 +46,7 @@ html {
     display: inline-block;
     position: relative;
     cursor: pointer;
-    letter-spacing: 0.07rem;
+    letter-spacing: 0.07em;
     border: $thick solid transparent;
   }
 
@@ -75,16 +76,16 @@ html {
     &.-right,
     &.-left {
       width: $thick;
-      bottom: $thick;
-      top: $thick;
+      bottom: -$thick;
+      top: -$thick;
       transform: scale3d(1, 0, 1);
     }
 
     &.-top,
     &.-bottom {
       height: $thick;
-      left: $thick;
-      right: $thick;
+      left: -$thick;
+      right: -$thick;
       transform: scale3d(0, 1, 1);
     }
 
@@ -108,32 +109,31 @@ html {
 
     &.-bottom {
       bottom: -$thick;
-      transition: transform 0.3s cubic-bezier(1,0,.65,1.01);
+      transition: transform 0.3s cubic-bezier(1, 0, 0.65, 1.01);
       transform-origin: right;
     }
   }
 
   &:hover,
   &:active {
-    
-    .text{
-        transform: translate3d(0,0,0);
+    .text {
+      transform: translate3d(0, 0, 0);
     }
 
-    &::after{
-        transform: scale3d(0,1,1);
-        right: -$thick;
-        left: -$thick;
-        transform-origin: right;
-        transition: transform .2s cubic-bezier(1,0,.65,1.01) 0.17s,
-        right 0.2s cubic-bezier(1,0,.65,1.01), left 0s 0.3s;
+    &::after {
+      transform: scale3d(0, 1, 1);
+      right: -$thick;
+      left: -$thick;
+      transform-origin: right;
+      transition: transform 0.2s cubic-bezier(1, 0, 0.65, 1.01) 0.17s,
+        right 0.2s cubic-bezier(1, 0, 0.65, 1.01), left 0s 0.3s;
     }
 
-    .line{
-        transform: scale3d(1,1,1);
+    .line {
+      transform: scale3d(1, 1, 1);
 
-        &.-right {
-        transition: transform 0.1s cubic-bezier(1,0,.65,1.01) 0.2s;
+      &.-right {
+        transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.2s;
         transform-origin: bottom;
       }
 
@@ -148,7 +148,7 @@ html {
       }
 
       &.-bottom {
-        transition: transform 0.5s cubic-bezier(0,.53,.29,1) 0.56s;
+        transition: transform 0.5s cubic-bezier(0, 0.53, 0.29, 1) 0.56s;
         transform-origin: left;
       }
     }
@@ -157,4 +157,24 @@ html {
 
 .hide-text {
   display: none;
+}
+
+.heading {
+  &__about {
+    font-size: 8rem;
+    margin-bottom: 5rem;
+    color: $color;
+    // letter-spacing: 1px;
+    font-weight: 300;
+    position: relative;
+    // text-decoration: underline;
+  }
+}
+
+.under {
+  width: 25rem;
+  height: 3px;
+  bottom: 0;
+  margin: -4.4rem auto 0;
+  background: $color;
 }
